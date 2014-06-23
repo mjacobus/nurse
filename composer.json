@@ -1,0 +1,20 @@
+{
+    "name": "nurse/di",
+    "description": "Dependency injection library",
+    "homepage":"https://github.com/mjacobus/nurse",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcelo Jacobus",
+            "email": "marcelo.jacobus@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/PHPUnit": "3.7.*",
+        "php-objects/php-objects": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {"Nurse\\": "lib"}
+    }
+}
