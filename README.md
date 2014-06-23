@@ -41,14 +41,16 @@ Defining a dependency:
 ```php
 $container = new Nurse\Container;
 
+// Defining a dependency
+
 $container->set('connection', function ($container) {
     return new Connection();
 });
 
+// Retrieving the dependency (lazy loading)
 $connection = $container->get('connection');
 
-
-// or you can use the singleton instance of the container
+// alternatively you can use the singleton instance of the container
 
 Nurse\Di::set('connection', function ($container) {
     return new Connection();
