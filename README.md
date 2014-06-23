@@ -53,7 +53,6 @@ Nurse\Di::set('connection', function ($container) {
 });
 
 $connection = Nurse\Di::set('connection');
-
 ```
 
 ## Contributing
