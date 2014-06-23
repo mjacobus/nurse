@@ -39,6 +39,8 @@ Append the lib to your requirements key in your composer.json.
 Defining a dependency:
 
 ```php
+$container = new Nurse\Container;
+
 $container->set('connection', function ($container) {
     return new Connection();
 });
