@@ -5,6 +5,10 @@ Very simple Dependency Injection Container for PHP
 [![Build Status](https://travis-ci.org/mjacobus/nurse.png?branch=master)](https://travis-ci.org/mjacobus/nurse)
 [![Coverage Status](https://coveralls.io/repos/mjacobus/nurse/badge.png)](https://coveralls.io/r/mjacobus/nurse)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/nurse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/nurse/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/nurse/di/v/stable.svg)](https://packagist.org/packages/nurse/di)
+[![Total Downloads](https://poser.pugx.org/nurse/di/downloads.svg)](https://packagist.org/packages/nurse/di)
+[![Latest Unstable Version](https://poser.pugx.org/nurse/di/v/unstable.svg)](https://packagist.org/packages/nurse/di)
+[![License](https://poser.pugx.org/nurse/di/license.svg)](https://packagist.org/packages/nurse/di)
 
 ## Installing
 
