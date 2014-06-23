@@ -34,6 +34,28 @@ Append the lib to your requirements key in your composer.json.
 
 [Here](https://github.com/mjacobus/nurse/issues) is the issue tracker.
 
+## Usage
+
+Defining a dependency:
+
+```php
+$container->set('connection', function ($container) {
+    return new Connection();
+});
+
+$connection = $container->get('connection');
+
+
+// or you can use the singleton instance of the container
+
+Nurse\Di::set('connection', function ($container) {
+    return new Connection();
+});
+
+$connection = Nurse\Di::set('connection');
+
+```
+
 ## Contributing
 
 Only TDD code will be accepted. Please follow the [PSR-2 code standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
