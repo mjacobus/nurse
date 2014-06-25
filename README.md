@@ -72,8 +72,15 @@ Only TDD code will be accepted. Please follow the [PSR-2 code standard](https://
 
 ### How to run the tests:
 
+#### First install the dependencies
 ```bash
-phpunit --configuration tests/phpunit.xml
+composer install
+```
+
+And then you are ready to run the tests
+
+```bash
+./vendor/bin/phpunit -c tests/phpunit.xml
 ```
 
 ### To check the code standard run:
