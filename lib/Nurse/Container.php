@@ -22,6 +22,7 @@ class Container
     public function set($key, $callback)
     {
         $this->definitions[$key] = $callback;
+
         return $this;
     }
 
@@ -46,7 +47,7 @@ class Container
     /**
      * Get the definition funciton
      *
-     * @param string $key the definition key
+     * @param  string                    $key the definition key
      * @return callable
      * @throws \InvalidArgumentException when requested key is not set
      */
