@@ -27,47 +27,39 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
     public function testGetReturnsTheValueOfTheFunction()
     {
-        $object = new Container;
-
-        $object->set('connection', function () {
+        $this->object->set('connection', function () {
             return new Connection;
         });
 
-        $this->assertInstanceOf('Dummy\Connection', $object->get('connection'));
+        $this->assertInstanceOf('Dummy\Connection', $this->object->get('connection'));
     }
 
     public function testGetCachesFunction()
     {
-        $object = new Container;
-
-        $object->set('connection', function () {
+        $this->object->set('connection', function () {
             return new Connection;
         });
 
-        $connection = $object->get('connection');
-        $other      = $object->get('connection');
+        $connection = $this->object->get('connection');
+        $other      = $this->object->get('connection');
 
         $this->assertSame($connection, $other);
     }
 
     public function testGetLazyLoadsFunction()
     {
-        $object = new Container;
-
-        $object->set('connection', function () {
+        $this->object->set('connection', function () {
             throw new \Exception;
         });
     }
 
     public function testSetReturnsSelf()
     {
-        $object = new Container;
-
-        $return = $object->set('connection', function () {
+        $return = $this->object->set('connection', function () {
             return null;
         });
 
-        $this->assertSame($object, $return);
+        $this->assertSame($this->object, $return);
     }
 
     /**
