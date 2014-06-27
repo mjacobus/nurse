@@ -4,7 +4,6 @@ namespace NurseTests;
 
 use PHPUnit_Framework_TestCase;
 use Nurse\Container;
-use Nurse\Di;
 use Dummy\Connection;
 
 class ContainerTest extends PHPUnit_Framework_TestCase
