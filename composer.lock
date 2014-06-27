@@ -1,13 +1,64 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "f2b51d8f4aadbf674b5cc703f87f1472",
+    "hash": "9550b48316003a43abfbbaecda964e16",
     "packages": [
 
     ],
     "packages-dev": [
+        {
+            "name": "fabpot/php-cs-fixer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/PHP-CS-Fixer.git",
+                "reference": "8da853c1d763c259992fc035cd0d4965ffdc54c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/PHP-CS-Fixer/zipball/8da853c1d763c259992fc035cd0d4965ffdc54c8",
+                "reference": "8da853c1d763c259992fc035cd0d4965ffdc54c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.6",
+                "sebastian/diff": "1.1.*",
+                "symfony/console": "~2.1",
+                "symfony/filesystem": "~2.1",
+                "symfony/finder": "~2.1"
+            },
+            "bin": [
+                "php-cs-fixer"
+            ],
+            "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\CS": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A script to automatically fix Symfony Coding Standard",
+            "time": "2014-06-27 09:43:20"
+        },
         {
             "name": "guzzle/guzzle",
             "version": "v3.9.1",
@@ -106,12 +157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjacobus/php-objects.git",
-                "reference": "a5322dd0fac2da8677a0188fad7223846a74f790"
+                "reference": "8835e0a23ae30d441af2ad2f330c823593668210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjacobus/php-objects/zipball/a5322dd0fac2da8677a0188fad7223846a74f790",
-                "reference": "a5322dd0fac2da8677a0188fad7223846a74f790",
+                "url": "https://api.github.com/repos/mjacobus/php-objects/zipball/8835e0a23ae30d441af2ad2f330c823593668210",
+                "reference": "8835e0a23ae30d441af2ad2f330c823593668210",
                 "shasum": ""
             },
             "require-dev": {
@@ -136,7 +187,7 @@
             ],
             "description": "Primitive types behaving like grown up objects",
             "homepage": "https://github.com/mjacobus/php-objects",
-            "time": "2014-06-14 16:03:50"
+            "time": "2014-06-25 14:03:41"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -548,18 +599,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/satooshi/php-coveralls.git",
-                "reference": "d05254e48ac5031a16418f42b11ccb0fc6daacd2"
+                "reference": "cad73f9122027d15a43968f862cf2958e2ac5f7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/d05254e48ac5031a16418f42b11ccb0fc6daacd2",
-                "reference": "d05254e48ac5031a16418f42b11ccb0fc6daacd2",
+                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/cad73f9122027d15a43968f862cf2958e2ac5f7a",
+                "reference": "cad73f9122027d15a43968f862cf2958e2ac5f7a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-simplexml": "*",
-                "guzzle/guzzle": ">=3.0",
+                "guzzle/guzzle": ">=2.7",
                 "php": ">=5.3",
                 "psr/log": "1.0.0",
                 "symfony/config": ">=2.0",
@@ -569,7 +620,7 @@
             },
             "require-dev": {
                 "apigen/apigen": "2.8.*@stable",
-                "pdepend/pdepend": "dev-master",
+                "pdepend/pdepend": "dev-master as 2.0.0",
                 "phpmd/phpmd": "dev-master",
                 "phpunit/php-invoker": ">=1.1.0,<1.2.0",
                 "phpunit/phpunit": "3.7.*@stable",
@@ -615,7 +666,57 @@
                 "github",
                 "test"
             ],
-            "time": "2014-06-12 15:19:16"
+            "time": "2014-06-24 23:45:40"
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
+                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2013-08-03 16:46:33"
         },
         {
             "name": "symfony/config",
@@ -833,6 +934,55 @@
             "time": "2014-04-16 10:36:21"
         },
         {
+            "name": "symfony/finder",
+            "version": "v2.5.0",
+            "target-dir": "Symfony/Component/Finder",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Finder.git",
+                "reference": "307aad2c541bbdf43183043645e186ef2cd6b973"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/307aad2c541bbdf43183043645e186ef2cd6b973",
+                "reference": "307aad2c541bbdf43183043645e186ef2cd6b973",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Finder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "http://symfony.com",
+            "time": "2014-05-22 13:47:45"
+        },
+        {
             "name": "symfony/stopwatch",
             "version": "v2.5.0",
             "target-dir": "Symfony/Component/Stopwatch",
@@ -937,7 +1087,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "php-objects/php-objects": 20,
-        "satooshi/php-coveralls": 20
+        "satooshi/php-coveralls": 20,
+        "fabpot/php-cs-fixer": 20
     },
     "platform": [
 

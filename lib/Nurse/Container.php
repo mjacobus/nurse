@@ -15,8 +15,8 @@ class Container
      * Defines the factory for the single instance objects that it should
      * create on demand
      *
-     * @param string $key the id for the callable function
-     * @param callable $callback the factory for the given key
+     * @param  string   $key      the id for the callable function
+     * @param  callable $callback the factory for the given key
      * @return self
      */
     public function set($key, $callback)
@@ -29,7 +29,7 @@ class Container
      * Get the requested data. If the data is a callable function, then
      * it only executes it the fist time and caches the result
      *
-     * @param string $key the key for the
+     * @param  string                    $key the key for the
      * @return mixed
      * @throws \InvalidArgumentException when requested key is not set
      */
