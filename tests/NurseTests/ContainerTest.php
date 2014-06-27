@@ -5,7 +5,7 @@ namespace NurseTests;
 use PHPUnit_Framework_TestCase;
 use Nurse\Container;
 use Nurse\Di;
-use DummyConnection;
+use Dummy\Connection;
 
 class ContainerTest extends PHPUnit_Framework_TestCase {
 
@@ -20,10 +20,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
         $object = new Container;
 
         $object->set('connection', function() {
-            return new DummyConnection;
+            return new Connection;
         });
 
-        $this->assertInstanceOf('DummyConnection', $object->get('connection'));
+        $this->assertInstanceOf('Dummy\Connection', $object->get('connection'));
     }
 
     public function testGetFazCacheDoResultadoDaFuncao()
@@ -31,7 +31,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
         $object = new Container;
 
         $object->set('connection', function()  {
-            return new DummyConnection;
+            return new Connection;
         });
 
         $connection = $object->get('connection');
