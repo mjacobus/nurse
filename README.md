@@ -77,7 +77,8 @@ $connection = Nurse\Di::get('connection');
 
 ## Contributing
 
-Please refer to the [contribuiting guide](https://github.com/mjacobus/nurse/CONTRIBUITING.md).
+Please refer to the [contribuiting guide](https://github.com/mjacobus/nurse/blob/master/CONTRIBUTING.md).
+
 
 ## Lincense
 [MIT](MIT-LICENSE)
