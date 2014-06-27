@@ -44,8 +44,16 @@ $container = new Nurse\Container;
 // Defining a dependency
 
 $container->set('connection', function ($container) {
-    return new Connection();
-});
+        $params = $container->get('connection_params');
+        return new Connection($params);
+    })
+    ->set('connection_params', function () {
+        return array(
+            'schema'   => 'someschema',
+            'username' => 'root',
+            'password' => 's3cr3t',
+        );
+    });
 
 // Retrieving the dependency (lazy loading)
 $connection = $container->get('connection');
