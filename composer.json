@@ -11,9 +11,11 @@
     ],
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*",
-        "php-objects/php-objects": "dev-master",
-        "satooshi/php-coveralls": "dev-master",
-        "fabpot/php-cs-fixer": "dev-master"
+        "phpmd/phpmd": "*",
+        "fabpot/php-cs-fixer": "dev-master",
+        "sebastian/phpdcd": "*",
+        "sebastian/phpcpd": "*",
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "psr-0": {"Nurse\\": "lib"}
