@@ -7,19 +7,19 @@ use Nurse\Container;
 use Nurse\Di;
 use Dummy\Connection;
 
-class ContainerTest extends PHPUnit_Framework_TestCase {
+class ContainerTest extends PHPUnit_Framework_TestCase
+{
 
-    public function testExisteClasse(){
-
-        $this->assertInstanceOf('Nurse\Container', new Container );
-
+    public function testExisteClasse()
+    {
+        $this->assertInstanceOf('Nurse\Container', new Container);
     }
 
     public function testRetornoCorreto()
     {
         $object = new Container;
 
-        $object->set('connection', function() {
+        $object->set('connection', function () {
             return new Connection;
         });
 
@@ -30,12 +30,12 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
     {
         $object = new Container;
 
-        $object->set('connection', function()  {
+        $object->set('connection', function () {
             return new Connection;
         });
 
         $connection = $object->get('connection');
-        $other = $object->get('connection');
+        $other      = $object->get('connection');
 
         $this->assertSame($connection, $other);
     }
@@ -44,11 +44,8 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
     {
         $object = new Container;
 
-        $object->set('connection', function()  {
+        $object->set('connection', function () {
             throw new \Exception;
         });
     }
-
-
 }
-
