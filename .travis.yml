@@ -17,7 +17,8 @@ before_script:
 
 script:
   - mkdir -p build/logs
-  - vendor/bin/php-cs-fixer fix -v --dry-run
+  - vendor/bin/php-cs-fixer fix -v --dry-run tests
+  - vendor/bin/php-cs-fixer fix -v --dry-run lib
   - vendor/bin/phpunit --configuration=tests/phpunit.xml
   - bin/travis/run_phpcs.sh
 
