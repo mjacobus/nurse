@@ -6,10 +6,6 @@ php:
   - 5.3.3
   - hhvm
 
-branches:
-  only:
-    - master
-
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
