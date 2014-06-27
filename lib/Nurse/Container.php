@@ -28,7 +28,7 @@ class Container
      *
      * @param string $key the key for the
      * @return mixed
-     * @throws InvalidArgumentException when requested key is not set
+     * @throws \InvalidArgumentException when requested key is not set
      */
     public function get($key)
     {
