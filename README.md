@@ -56,7 +56,7 @@ Nurse\Di::set('connection', function ($container) {
     return new Connection();
 });
 
-$connection = Nurse\Di::set('connection');
+$connection = Nurse\Di::get('connection');
 ```
 
 ## Contributing
@@ -99,4 +99,10 @@ phpcs --standard=PSR2 tests
 ## Authors
 
 - [Marcelo Jacobus](https://github.com/mjacobus)
+- Maicon Pinto
+- Anthonny Machado
+- Emerson Engroff
+- Daniel Caña
+- Elisandro Nabienger
+
 

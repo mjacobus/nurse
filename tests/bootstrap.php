@@ -9,3 +9,8 @@ $testsPath = realpath(dirname(__FILE__) . '/../tests/');
 $loader = require $libPath . '/../vendor/autoload.php';
 $loader->add('NurseTests\\', $testsPath);
 $loader->add('Dummy\\', $testsPath);
+
+class DummyConnection
+{
+
+}
