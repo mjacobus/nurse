@@ -15,7 +15,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Nurse\Container', new Container);
     }
 
-    public function testRetornoCorreto()
+    public function testGetReturnsTheValueOfTheFunction()
     {
         $object = new Container;
 
@@ -26,7 +26,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Dummy\Connection', $object->get('connection'));
     }
 
-    public function testGetFazCacheDoResultadoDaFuncao()
+    public function testGetCachesFunction()
     {
         $object = new Container;
 
@@ -40,7 +40,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertSame($connection, $other);
     }
 
-    public function testGetFazLazyLoadingDaFuncao()
+    public function testGetLazyLoadsFunction()
     {
         $object = new Container;
 
