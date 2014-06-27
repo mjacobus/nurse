@@ -53,6 +53,29 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         });
     }
 
+    public function testCallableFunctionReceivesContainerAsArgument()
+    {
+        $this->object->set('name', function () {
+            return 'Jon';
+        })
+        ->set('lastName', function () {
+            return 'Doe';
+        })
+        ->set('config', function ($container) {
+            return array(
+                'name'     => $container->get('name'),
+                'lastName' => $container->get('lastName'),
+            );
+        });
+
+        $expactation = array(
+            'name'     => 'Jon',
+            'lastName' => 'Doe'
+        );
+
+        $this->assertEquals($expactation, $this->object->get('config'));
+    }
+
     public function testSetReturnsSelf()
     {
         $return = $this->object->set('connection', function () {

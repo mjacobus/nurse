@@ -37,7 +37,7 @@ class Container
     {
         if (!isset($this->data[$key])) {
             $definition = $this->getDefinition($key);
-            $this->data[$key] = $definition();
+            $this->data[$key] = $definition($this);
         }
 
         return $this->data[$key];
