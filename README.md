@@ -61,8 +61,16 @@ $connection = $container->get('connection');
 // alternatively you can use the singleton instance of the container
 
 Nurse\Di::set('connection', function ($container) {
-    return new Connection();
-});
+        $params = $container->get('connection_params');
+        return new Connection($params);
+    })
+    ->set('connection_params', function () {
+        return array(
+            'schema'   => 'someschema',
+            'username' => 'root',
+            'password' => 's3cr3t',
+        );
+    });
 
 $connection = Nurse\Di::get('connection');
 ```
