@@ -10,6 +10,16 @@ use Dummy\Connection;
 class ContainerTest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     * @var Container
+     */
+    public $container;
+
+    public function setUp()
+    {
+        $this->object = new Container;
+    }
+
     public function testExisteClasse()
     {
         $this->assertInstanceOf('Nurse\Container', new Container);
@@ -47,5 +57,25 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $object->set('connection', function () {
             throw new \Exception;
         });
+    }
+
+    public function testSetReturnsSelf()
+    {
+        $object = new Container;
+
+        $return = $object->set('connection', function () {
+            return null;
+        });
+
+        $this->assertSame($object, $return);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage 'invalid_key' was not defined
+     */
+    public function testGetWithUndefinedKeyThrowsException()
+    {
+        $this->object->get('invalid_key');
     }
 }
