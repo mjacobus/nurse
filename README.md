@@ -44,16 +44,16 @@ $container = new Nurse\Container;
 // Defining a dependency
 
 $container->set('connection', function ($container) {
-        $params = $container->get('connection_params');
-        return new Connection($params);
-    })
-    ->set('connection_params', function () {
-        return array(
-            'schema'   => 'someschema',
-            'username' => 'root',
-            'password' => 's3cr3t',
-        );
-    });
+    $params = $container->get('connection_params');
+    return new Connection($params);
+})
+->set('connection_params', function () {
+    return array(
+        'schema'   => 'someschema',
+        'username' => 'root',
+        'password' => 's3cr3t',
+    );
+});
 
 // Retrieving the dependency (lazy loading)
 $connection = $container->get('connection');
@@ -61,53 +61,23 @@ $connection = $container->get('connection');
 // alternatively you can use the singleton instance of the container
 
 Nurse\Di::set('connection', function ($container) {
-        $params = $container->get('connection_params');
-        return new Connection($params);
-    })
-    ->set('connection_params', function () {
-        return array(
-            'schema'   => 'someschema',
-            'username' => 'root',
-            'password' => 's3cr3t',
-        );
-    });
+    $params = $container->get('connection_params');
+    return new Connection($params);
+})
+->set('connection_params', function () {
+    return array(
+        'schema'   => 'someschema',
+        'username' => 'root',
+        'password' => 's3cr3t',
+    );
+});
 
 $connection = Nurse\Di::get('connection');
 ```
 
 ## Contributing
 
-Only TDD code will be accepted. Please follow the [PSR-2 code standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-### How to run the tests:
-
-#### First install the dependencies
-```bash
-composer install
-```
-
-And then you are ready to run the tests
-
-```bash
-./vendor/bin/phpunit -c tests/phpunit.xml
-```
-
-### To check the code standard run:
-
-```bash
-phpcs --standard=PSR2 lib
-phpcs --standard=PSR2 tests
-
-# alternatively
-
-./bin/travis/run_phpcs.sh
-```
+Please refer to the [contribuiting guide](https://github.com/CONTRIBUITING.md)
 
 ## Lincense
 [MIT](MIT-LICENSE)
@@ -115,7 +85,7 @@ phpcs --standard=PSR2 tests
 ## Authors
 
 - [Marcelo Jacobus](https://github.com/mjacobus)
-- Maicon Pinto
+- [Maicon Pinto](https://github.com/maiconpinto)
 - Anthonny Machado
 - Emerson Engroff
 - Daniel Caña
