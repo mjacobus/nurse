@@ -17,8 +17,9 @@ before_script:
 
 script:
   - mkdir -p build/logs
-  - ./vendor/bin/phpunit --configuration=tests/phpunit.xml
-  - ./bin/travis/run_phpcs.sh
+  - vendor/bin/php-cs-fixer fix -v --dry-run
+  - vendor/bin/phpunit --configuration=tests/phpunit.xml
+  - bin/travis/run_phpcs.sh
 
 after_script:
   - php vendor/bin/coveralls
