@@ -2,9 +2,15 @@
 
 Very simple Dependency Injection Container for PHP
 
-[![Build Status](https://travis-ci.org/mjacobus/nurse.png?branch=master)](https://travis-ci.org/mjacobus/nurse)
-[![Coverage Status](https://coveralls.io/repos/mjacobus/nurse/badge.png)](https://coveralls.io/r/mjacobus/nurse)
-[![Code Climate](https://codeclimate.com/github/mjacobus/nurse.png)](https://codeclimate.com/github/mjacobus/nurse)
+Code information:
+
+[![Build Status](https://travis-ci.org/mjacobus/Nurse.png?branch=master)](https://travis-ci.org/mjacobus/Nurse)
+[![Coverage Status](https://coveralls.io/repos/mjacobus/Nurse/badge.png?branch=master)](https://coveralls.io/r/mjacobus/Nurse?branch=master)
+[![Code Climate](https://codeclimate.com/github/mjacobus/Nurse.png)](https://codeclimate.com/github/mjacobus/Nurse)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/Nurse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/Nurse/?branch=master)
+
+Package information:
+
 [![Latest Stable Version](https://poser.pugx.org/nurse/di/v/stable.svg)](https://packagist.org/packages/nurse/di)
 [![Total Downloads](https://poser.pugx.org/nurse/di/downloads.svg)](https://packagist.org/packages/nurse/di)
 [![Latest Unstable Version](https://poser.pugx.org/nurse/di/v/unstable.svg)](https://packagist.org/packages/nurse/di)
