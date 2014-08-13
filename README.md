@@ -4,10 +4,10 @@ Very simple Dependency Injection Container for PHP
 
 Code information:
 
-[![Build Status](https://travis-ci.org/mjacobus/Nurse.png?branch=master)](https://travis-ci.org/mjacobus/Nurse)
-[![Coverage Status](https://coveralls.io/repos/mjacobus/Nurse/badge.png?branch=master)](https://coveralls.io/r/mjacobus/Nurse?branch=master)
-[![Code Climate](https://codeclimate.com/github/mjacobus/Nurse.png)](https://codeclimate.com/github/mjacobus/Nurse)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/Nurse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/Nurse/?branch=master)
+[![Build Status](https://travis-ci.org/mjacobus/nurse.png?branch=master)](https://travis-ci.org/mjacobus/nurse)
+[![Coverage Status](https://coveralls.io/repos/mjacobus/nurse/badge.png?branch=master)](https://coveralls.io/r/mjacobus/nurse?branch=master)
+[![Code Climate](https://codeclimate.com/github/mjacobus/nurse.png)](https://codeclimate.com/github/mjacobus/nurse)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/nurse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/nurse/?branch=master)
 
 Package information:
 
