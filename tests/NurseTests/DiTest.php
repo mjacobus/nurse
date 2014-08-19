@@ -23,8 +23,8 @@ class DiTest extends PHPUnit_Framework_TestCase
 
     public function testSetReturnsContainer()
     {
-        $container = Di::set('connection', function () {
-            return new Connection;
+        $container = Di::set('foo', function () {
+            return 'foo';
         });
 
         $this->assertInstanceOf('Nurse\Container', $container);

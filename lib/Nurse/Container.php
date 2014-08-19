@@ -8,8 +8,14 @@ use Closure;
 class Container
 {
 
+    /**
+     * @var array
+     */
     private $definitions = array();
 
+    /**
+     * @var array
+     */
     private $data = array();
 
     /**
@@ -22,6 +28,12 @@ class Container
      */
     public function set($key, Closure $closure)
     {
+        if ($this->definitionExists($key)) {
+            throw new InvalidArgumentException(
+                "Key '$key' was already defined"
+            );
+        }
+
         $this->definitions[$key] = $closure;
 
         return $this;
@@ -59,5 +71,16 @@ class Container
         }
 
         throw new InvalidArgumentException("'$key' was not defined");
+    }
+
+    /**
+     * Check whether the definition exists
+     *
+     * @param string $key
+     * @return boolean
+     */
+    public function definitionExists($key)
+    {
+        return isset($this->definitions[$key]);
     }
 }

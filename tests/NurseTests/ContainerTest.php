@@ -40,6 +40,19 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertSame($connection, $other);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage 'foo' was already defined
+     */
+    public function testSetThrowsExceptionWhenWasAlreadyDefined()
+    {
+        $definition = function () {
+        };
+
+        $this->object->set('foo', $definition);
+        $this->object->set('foo', $definition);
+    }
+
     public function testGetLazyLoadsFunction()
     {
         $this->object->set('connection', function () {
