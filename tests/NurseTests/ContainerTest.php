@@ -19,11 +19,6 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->object = new Container;
     }
 
-    public function testExisteClasse()
-    {
-        $this->assertInstanceOf('Nurse\Container', new Container);
-    }
-
     public function testGetReturnsTheValueOfTheFunction()
     {
         $this->object->set('connection', function () {
