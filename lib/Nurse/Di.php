@@ -2,6 +2,8 @@
 
 namespace Nurse;
 
+use Closure;
+
 class Di
 {
 
@@ -17,7 +19,7 @@ class Di
 
     private function __construct()
     {
-        $this->container = new Container;
+        $this->container = new Container();
     }
 
     /**
@@ -34,13 +36,13 @@ class Di
      * Defines the factory for the single instance objects that it should
      * create on demand
      *
-     * @param  string    $key      the id for the callable function
-     * @param  callable  $callback the factory for the given key
+     * @param  string    $key     the id for the callable function
+     * @param  Closure   $closure the factory for the given key
      * @return Container
      */
-    public static function set($key, $callback)
+    public static function set($key, Closure $closure)
     {
-        return self::getInstance()->getContainer()->set($key, $callback);
+        return self::getInstance()->getContainer()->set($key, $closure);
     }
 
     /**
@@ -63,7 +65,7 @@ class Di
     public static function getInstance()
     {
         if (self::$instance === null) {
-            self::$instance = new self;
+            self::$instance = new self();
         }
 
         return self::$instance;

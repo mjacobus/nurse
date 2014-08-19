@@ -3,6 +3,7 @@
 namespace Nurse;
 
 use InvalidArgumentException;
+use Closure;
 
 class Container
 {
@@ -15,13 +16,13 @@ class Container
      * Defines the factory for the single instance objects that it should
      * create on demand
      *
-     * @param  string   $key      the id for the callable function
-     * @param  callable $callback the factory for the given key
+     * @param  string  $key     the id for the callable function
+     * @param  Closure $closure the factory for the given key
      * @return self
      */
-    public function set($key, $callback)
+    public function set($key, Closure $closure)
     {
-        $this->definitions[$key] = $callback;
+        $this->definitions[$key] = $closure;
 
         return $this;
     }
