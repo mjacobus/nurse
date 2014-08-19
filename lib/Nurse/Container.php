@@ -2,6 +2,8 @@
 
 namespace Nurse;
 
+use InvalidArgumentException;
+
 class Container
 {
 
@@ -20,6 +22,8 @@ class Container
     public function set($key, $callback)
     {
         $this->definitions[$key] = $callback;
+
+        return $this;
     }
 
     /**
@@ -33,9 +37,26 @@ class Container
     public function get($key)
     {
         if (!isset($this->data[$key])) {
-            $this->data[$key] = $this->definitions[$key]();
+            $definition = $this->getDefinition($key);
+            $this->data[$key] = $definition($this);
         }
 
         return $this->data[$key];
+    }
+
+    /**
+     * Get the definition funciton
+     *
+     * @param  string                    $key the definition key
+     * @return callable
+     * @throws \InvalidArgumentException when requested key is not set
+     */
+    public function getDefinition($key)
+    {
+        if (isset($this->definitions[$key])) {
+            return $this->definitions[$key];
+        }
+
+        throw new InvalidArgumentException("'$key' was not defined");
     }
 }
