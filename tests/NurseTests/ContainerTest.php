@@ -16,13 +16,13 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->object = new Container;
+        $this->object = new Container();
     }
 
     public function testGetReturnsTheValueOfTheFunction()
     {
         $this->object->set('connection', function () {
-            return new Connection;
+            return new Connection();
         });
 
         $this->assertInstanceOf('Dummy\Connection', $this->object->get('connection'));
@@ -31,7 +31,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     public function testGetCachesFunction()
     {
         $this->object->set('connection', function () {
-            return new Connection;
+            return new Connection();
         });
 
         $connection = $this->object->get('connection');
@@ -56,7 +56,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     public function testGetLazyLoadsFunction()
     {
         $this->object->set('connection', function () {
-            throw new \Exception;
+            throw new \Exception();
         });
     }
 

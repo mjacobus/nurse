@@ -76,7 +76,7 @@ class Container
     /**
      * Check whether the definition exists
      *
-     * @param string $key
+     * @param  string  $key
      * @return boolean
      */
     public function definitionExists($key)

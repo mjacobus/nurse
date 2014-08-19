@@ -12,7 +12,7 @@ class DiTest extends PHPUnit_Framework_TestCase
     public function testCanSetAndGetValues()
     {
         Di::set('connection', function () {
-            return new Connection;
+            return new Connection();
         });
 
         $connection = Di::get('connection');
