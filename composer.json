@@ -10,7 +10,7 @@
         }
     ],
     "require-dev": {
-        "phpunit/PHPUnit": "3.7.*",
+        "phpunit/phpunit": "*",
         "fabpot/php-cs-fixer": "dev-master"
     },
     "autoload": {
