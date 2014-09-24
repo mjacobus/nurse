@@ -15,7 +15,7 @@ Package information:
 [![Total Downloads](https://poser.pugx.org/nurse/di/downloads.svg)](https://packagist.org/packages/nurse/di)
 [![Latest Unstable Version](https://poser.pugx.org/nurse/di/v/unstable.svg)](https://packagist.org/packages/nurse/di)
 [![License](https://poser.pugx.org/nurse/di/license.svg)](https://packagist.org/packages/nurse/di)
-[![Dependency Status](https://gemnasium.com/mjacobus/Nurse.png)](https://gemnasium.com/mjacobus/Nurse)
+[![Dependency Status](https://gemnasium.com/mjacobus/nurse.png)](https://gemnasium.com/mjacobus/nurse)
 
 ## Installing
 
