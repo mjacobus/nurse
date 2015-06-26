@@ -8,7 +8,6 @@ use Dummy\Connection;
 
 class ContainerTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @var Container
      */
@@ -77,7 +76,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
         $expactation = array(
             'name'     => 'Jon',
-            'lastName' => 'Doe'
+            'lastName' => 'Doe',
         );
 
         $this->assertEquals($expactation, $this->object->get('config'));
@@ -86,7 +85,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     public function testSetReturnsSelf()
     {
         $return = $this->object->set('connection', function () {
-            return null;
+            return;
         });
 
         $this->assertSame($this->object, $return);

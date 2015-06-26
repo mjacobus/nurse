@@ -7,7 +7,6 @@ use Closure;
 
 class Container
 {
-
     /**
      * @var array
      */
@@ -22,8 +21,9 @@ class Container
      * Defines the factory for the single instance objects that it should
      * create on demand
      *
-     * @param  string  $key     the id for the callable function
-     * @param  Closure $closure the factory for the given key
+     * @param string  $key     the id for the callable function
+     * @param Closure $closure the factory for the given key
+     *
      * @return self
      */
     public function set($key, Closure $closure)
@@ -43,8 +43,10 @@ class Container
      * Get the requested data. If the data is a callable function, then
      * it only executes it the fist time and caches the result
      *
-     * @param  string                    $key the key for the
+     * @param string $key the key for the
+     *
      * @return mixed
+     *
      * @throws \InvalidArgumentException when requested key is not set
      */
     public function get($key)
@@ -60,8 +62,10 @@ class Container
     /**
      * Get the definition funciton
      *
-     * @param  string                    $key the definition key
+     * @param string $key the definition key
+     *
      * @return callable
+     *
      * @throws \InvalidArgumentException when requested key is not set
      */
     private function getDefinition($key)
@@ -76,8 +80,9 @@ class Container
     /**
      * Check whether the definition exists
      *
-     * @param  string  $key
-     * @return boolean
+     * @param string $key
+     *
+     * @return bool
      */
     public function definitionExists($key)
     {

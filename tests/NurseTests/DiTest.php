@@ -3,7 +3,6 @@
 namespace NurseTests;
 
 use PHPUnit_Framework_TestCase;
-
 use Nurse\Di;
 use Dummy\Connection;
 

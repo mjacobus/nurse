@@ -4,5 +4,4 @@ namespace Dummy;
 
 class Connection
 {
-
 }
