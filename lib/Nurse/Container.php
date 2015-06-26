@@ -64,7 +64,7 @@ class Container
      * @return callable
      * @throws \InvalidArgumentException when requested key is not set
      */
-    public function getDefinition($key)
+    private function getDefinition($key)
     {
         if (isset($this->definitions[$key])) {
             return $this->definitions[$key];
