@@ -6,19 +6,16 @@ use Closure;
 
 class Di
 {
+    use DependencyManagerAwareTrait;
+
     /**
      * @var Di
      */
     private static $instance;
 
-    /**
-     * @var Container
-     */
-    private $container;
-
     private function __construct()
     {
-        $this->container = new Container();
+        $this->setDependencyManager(new Container());
     }
 
     /**
@@ -28,7 +25,7 @@ class Di
      */
     public function getContainer()
     {
-        return $this->container;
+        return $this->getDependencyManager();
     }
 
     /**
