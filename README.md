@@ -33,6 +33,8 @@ Append the lib to your requirements key in your composer.json.
 }
 ```
 
+For PHP 5.3 support use version 0.9.2.
+
 ### Alternative install
 - Learn [composer](https://getcomposer.org). You should not be looking for an alternative install. It is worth the time. Trust me ;-)
 - Follow [this set of instructions](#installing-via-composer)
