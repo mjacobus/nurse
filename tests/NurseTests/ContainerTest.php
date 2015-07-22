@@ -40,7 +40,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Nurse\DependencyAlreadyDefinedException
      * @expectedExceptionMessage 'foo' was already defined
      */
     public function testSetThrowsExceptionWhenWasAlreadyDefined()
@@ -92,7 +92,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
+     * @expectedException \Nurse\UndefinedDependencyException
      * @expectedExceptionMessage 'invalid_key' was not defined
      */
     public function testGetWithUndefinedKeyThrowsException()

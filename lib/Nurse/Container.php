@@ -2,7 +2,6 @@
 
 namespace Nurse;
 
-use InvalidArgumentException;
 use Closure;
 
 class Container
@@ -24,12 +23,13 @@ class Container
      * @param string  $key     the id for the callable function
      * @param Closure $closure the factory for the given key
      *
+     * @throws DependencyAlreadyDefinedException
      * @return self
      */
     public function set($key, Closure $closure)
     {
         if ($this->definitionExists($key)) {
-            throw new InvalidArgumentException(
+            throw new DependencyAlreadyDefinedException(
                 "Key '$key' was already defined"
             );
         }
@@ -47,7 +47,7 @@ class Container
      *
      * @return mixed
      *
-     * @throws \InvalidArgumentException when requested key is not set
+     * @throws UndefinedDependencyException when requested key is not set
      */
     public function get($key)
     {
@@ -66,7 +66,7 @@ class Container
      *
      * @return callable
      *
-     * @throws \InvalidArgumentException when requested key is not set
+     * @throws UndefinedDependencyException when requested key is not set
      */
     private function getDefinition($key)
     {
@@ -74,7 +74,7 @@ class Container
             return $this->definitions[$key];
         }
 
-        throw new InvalidArgumentException("'$key' was not defined");
+        throw new UndefinedDependencyException("'$key' was not defined");
     }
 
     /**
