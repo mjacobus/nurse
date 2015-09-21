@@ -1,21 +1,8 @@
-tools:
-    php_code_coverage:
-        test_command: "phpunit --configuration tests/phpunit.xml"
-        filter:
-            paths: ["lib/*"]
-    php_sim:
-        enabled: true
-        filter:
-            paths: ["lib/*"]
-    php_mess_detector:
-        enabled: true
-        filter:
-            paths: ["lib/*"]
-    php_pdepend:
-        enabled: true
-        filter:
-            paths: ["lib/*"]
-    php_analyzer:
-        enabled: true
-        filter:
-            paths: ["lib/*"]
+build:
+  tests:
+    override:
+      -
+        command: 'phpunit --coverage-clover=./build/logs/clover.xml'
+        coverage:
+          file: './build/logs/clover.xml'
+          format: 'php-clover'
