@@ -5,6 +5,6 @@ namespace Nurse;
 /**
  * Nurse\DependencyAlreadyDefinedException
  */
-class DependencyAlreadyDefinedException extends \Exception
+class DependencyAlreadyDefinedException extends \InvalidArgumentException
 {
 }

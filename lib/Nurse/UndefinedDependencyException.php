@@ -5,6 +5,6 @@ namespace Nurse;
 /**
  * Nurse\UndefinedDependencyException
  */
-class UndefinedDependencyException extends \Exception
+class UndefinedDependencyException extends \InvalidArgumentException
 {
 }
