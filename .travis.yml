@@ -1,25 +1,30 @@
 sudo: false
 language: php
-php:
-  - nightly
-  - 7.0
-  - 5.6
-  - 5.5
-  - 5.4
-  - hhvm
-
-before_script:
-  - composer self-update
-  - composer install --dev --no-interaction
-
-script:
-  - mkdir -p build/logs
-  - vendor/bin/phpunit
-
-after_script:
-  - php vendor/bin/coveralls
 
 matrix:
-  allow_failures:
-    php:
-      - nightly
+  fast_finish: true
+  include:
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+      env:
+        - EXECUTE_TEST_COVERALLS=true
+        - EXECUTE_CS_CHECK=true
+    - php: 7
+    - php: nightly
+    - php: hhvm
+
+before_install:
+  - mkdir -p build/logs
+  - composer self-update
+
+install:
+  - travis_retry composer install --no-interaction --ignore-platform-reqs
+
+script:
+  - ./vendor/bin/phpunit --version
+  - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then vendor/bin/phpunit ; fi
+  - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then vendor/bin/phpunit --coverage-clover=./build/logs/clover.xml; fi
+
+after_script:
+  - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/coveralls ; fi
