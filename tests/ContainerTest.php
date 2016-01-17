@@ -2,16 +2,38 @@
 
 namespace NurseTests;
 
-use PHPUnit_Framework_TestCase;
-use Nurse\Container;
 use Dummy\Connection;
+use Interop\Container\Definition\DefinitionProviderInterface;
+use Interop\Container\Definition\Test\AbstractDefinitionCompatibilityTest;
+use Nurse\Container;
 
-class ContainerTest extends PHPUnit_Framework_TestCase
+class ContainerTest extends AbstractDefinitionCompatibilityTest
 {
     /**
      * @var Container
      */
     public $container;
+
+    /**
+     * Takes a definition provider in parameter and returns a container containing the entries.
+     *
+     * @param DefinitionProviderInterface $definitionProvider
+     * @return ContainerInterface
+     */
+    protected function getContainer(DefinitionProviderInterface $definitionProvider)
+    {
+        $container = new Container();
+
+        foreach ($definitionProvider->getDefinitions() as $key => $value) {
+            $definition = function () use ($value) {
+                return $value;
+            };
+
+            $container->set($key, $definition);
+        }
+
+        return $container;
+    }
 
     public function setUp()
     {
