@@ -1,13 +1,13 @@
-<phpunit bootstrap="bootstrap.php" colors="true">
+<phpunit bootstrap="./tests/bootstrap.php" colors="true">
   <testsuites>
     <testsuite name="NurseTests">
-      <directory>.</directory>
+      <directory>./tests</directory>
     </testsuite>
   </testsuites>
 
   <filter>
     <whitelist>
-      <directory suffix=".php">../lib/</directory>
+      <directory suffix=".php">./lib/</directory>
     </whitelist>
   </filter>
 
