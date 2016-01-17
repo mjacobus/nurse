@@ -26,6 +26,7 @@ class Container implements ContainerInterface
      * @param Closure $closure the factory for the given key
      *
      * @throws DependencyAlreadyDefinedException
+     *
      * @return self
      */
     public function set($key, Closure $closure)

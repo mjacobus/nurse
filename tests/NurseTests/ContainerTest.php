@@ -18,7 +18,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->object = new Container();
     }
 
-    public function testGetReturnsTheValueOfTheFunction()
+    /**
+     * @test
+     */
+    public function getReturnsTheValueOfTheFunction()
     {
         $this->object->set('connection', function () {
             return new Connection();
@@ -27,7 +30,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Dummy\Connection', $this->object->get('connection'));
     }
 
-    public function testGetCachesFunction()
+    /**
+     * @test
+     */
+    public function getCachesFunction()
     {
         $this->object->set('connection', function () {
             return new Connection();
@@ -40,10 +46,11 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @test
      * @expectedException \Nurse\DependencyAlreadyDefinedException
      * @expectedExceptionMessage 'foo' was already defined
      */
-    public function testSetThrowsExceptionWhenWasAlreadyDefined()
+    public function setThrowsExceptionWhenWasAlreadyDefined()
     {
         $definition = function () {
         };
@@ -52,14 +59,20 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->object->set('foo', $definition);
     }
 
-    public function testGetLazyLoadsFunction()
+    /**
+     * @test
+     */
+    public function getLazyLoadsFunction()
     {
         $this->object->set('connection', function () {
             throw new \Exception();
         });
     }
 
-    public function testCallableFunctionReceivesContainerAsArgument()
+    /**
+     * @test
+     */
+    public function callableFunctionReceivesContainerAsArgument()
     {
         $this->object->set('name', function () {
             return 'Jon';
@@ -82,7 +95,10 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expactation, $this->object->get('config'));
     }
 
-    public function testSetReturnsSelf()
+    /**
+     * @test
+     */
+    public function setReturnsSelf()
     {
         $return = $this->object->set('connection', function () {
             return;
@@ -92,10 +108,11 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @test
      * @expectedException \Interop\Container\Exception\NotFoundException
      * @expectedExceptionMessage 'invalid_key' was not defined
      */
-    public function testGetWithUndefinedKeyThrowsException()
+    public function getWithUndefinedKeyThrowsException()
     {
         $this->object->get('invalid_key');
     }

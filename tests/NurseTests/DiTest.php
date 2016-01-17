@@ -2,13 +2,16 @@
 
 namespace NurseTests;
 
-use PHPUnit_Framework_TestCase;
-use Nurse\Di;
 use Dummy\Connection;
+use Nurse\Di;
+use PHPUnit_Framework_TestCase;
 
 class DiTest extends PHPUnit_Framework_TestCase
 {
-    public function testCanSetAndGetValues()
+    /**
+     * @test
+     */
+    public function canSetAndGetValues()
     {
         Di::set('connection', function () {
             return new Connection();
@@ -20,7 +23,10 @@ class DiTest extends PHPUnit_Framework_TestCase
         $this->assertSame($connection, Di::get('connection'));
     }
 
-    public function testSetReturnsContainer()
+    /**
+     * @test
+     */
+    public function setReturnsContainer()
     {
         $container = Di::set('foo', function () {
             return 'foo';
