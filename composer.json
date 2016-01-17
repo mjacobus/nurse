@@ -18,6 +18,8 @@
     "require-dev": {
     },
     "autoload": {
-        "psr-0": {"Nurse\\": "lib"}
+        "psr-4": {
+            "Nurse\\": "src"
+        }
     }
 }
