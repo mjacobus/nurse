@@ -1,6 +1,6 @@
 <?php
 
-namespace Nurse;
+namespace Nurse\Container\Exception;
 
 use Interop\Container\Exception\NotFoundException;
 

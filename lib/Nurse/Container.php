@@ -5,6 +5,8 @@ namespace Nurse;
 use Closure;
 use Interop\Container\ContainerInterface;
 use Nurse\Container\Exception\ContainerException;
+use Nurse\Container\Exception\DependencyAlreadyDefinedException;
+use Nurse\Container\Exception\UndefinedDependencyException;
 
 class Container implements ContainerInterface
 {

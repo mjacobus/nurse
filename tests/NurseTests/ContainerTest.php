@@ -47,7 +47,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \Nurse\DependencyAlreadyDefinedException
+     * @expectedException \Nurse\Container\Exception\DependencyAlreadyDefinedException
      * @expectedExceptionMessage 'foo' was already defined
      */
     public function setThrowsExceptionWhenWasAlreadyDefined()
