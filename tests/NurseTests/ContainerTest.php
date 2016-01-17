@@ -92,11 +92,55 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Nurse\UndefinedDependencyException
+     * @expectedException \Interop\Container\Exception\NotFoundException
      * @expectedExceptionMessage 'invalid_key' was not defined
      */
     public function testGetWithUndefinedKeyThrowsException()
     {
         $this->object->get('invalid_key');
+    }
+
+    /**
+     * @expectedException \Interop\Container\Exception\ContainerException
+     * @expectedExceptionMessage Error creating object with key 'foo'
+     * @test
+     */
+    public function throwsContainerExeptionWhenTheFactoryFails()
+    {
+        try {
+            $original = new \Exception('foo');
+
+            $this->object->set('foo', function () use ($original) {
+                throw $original;
+            })->get('foo');
+        } catch (\Exception $e) {
+            $this->assertSame($original, $e->getPrevious());
+            throw $e;
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function implementsInteropContainerInterface()
+    {
+        $this->assertInstanceOf(
+            'Interop\Container\ContainerInterface',
+            $this->object
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function returnsBooleanIndicatingIfDependencyWasDefined()
+    {
+        $this->assertFalse($this->object->has('connection'));
+
+        $definition = function () {
+        };
+
+        $this->object->set('connection', $definition);
+        $this->assertTrue($this->object->has('connection'));
     }
 }

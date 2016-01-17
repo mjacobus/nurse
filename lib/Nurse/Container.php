@@ -3,8 +3,10 @@
 namespace Nurse;
 
 use Closure;
+use Interop\Container\ContainerInterface;
+use Nurse\Container\Exception\ContainerException;
 
-class Container
+class Container implements ContainerInterface
 {
     /**
      * @var array
@@ -40,8 +42,7 @@ class Container
     }
 
     /**
-     * Get the requested data. If the data is a callable function, then
-     * it only executes it the fist time and caches the result
+     * {@inheritdoc}
      *
      * @param string $key the key for the
      *
@@ -53,10 +54,26 @@ class Container
     {
         if (!isset($this->data[$key])) {
             $definition = $this->getDefinition($key);
-            $this->data[$key] = $definition($this);
+            try {
+                $this->data[$key] = $definition($this);
+            } catch (\Exception $e) {
+                throw new ContainerException(
+                    "Error creating object with key 'foo'",
+                    0,
+                    $e
+                );
+            }
         }
 
         return $this->data[$key];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function has($key)
+    {
+        return array_key_exists($key, $this->definitions);
     }
 
     /**
@@ -70,7 +87,7 @@ class Container
      */
     private function getDefinition($key)
     {
-        if (isset($this->definitions[$key])) {
+        if ($this->has($key)) {
             return $this->definitions[$key];
         }
 
