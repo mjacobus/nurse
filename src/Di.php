@@ -48,9 +48,9 @@ class Di
      *
      * @param string $key the key for the
      *
-     * @return mixed
-     *
      * @throws \InvalidArgumentException when requested key is not set
+     *
+     * @return mixed
      */
     public static function get($key)
     {
