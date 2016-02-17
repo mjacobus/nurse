@@ -2,9 +2,9 @@
 
 namespace NurseTests;
 
-use PHPUnit_Framework_TestCase;
-use Nurse\Container;
 use Dummy\Connection;
+use Nurse\Container;
+use PHPUnit_Framework_TestCase;
 
 class ContainerTest extends PHPUnit_Framework_TestCase
 {
@@ -40,7 +40,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         });
 
         $connection = $this->object->get('connection');
-        $other      = $this->object->get('connection');
+        $other = $this->object->get('connection');
 
         $this->assertSame($connection, $other);
     }

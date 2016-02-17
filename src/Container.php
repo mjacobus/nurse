@@ -49,9 +49,9 @@ class Container implements ContainerInterface
      *
      * @param string $key the key for the
      *
-     * @return mixed
-     *
      * @throws UndefinedDependencyException when requested key is not set
+     *
+     * @return mixed
      */
     public function get($key)
     {
@@ -84,9 +84,9 @@ class Container implements ContainerInterface
      *
      * @param string $key the definition key
      *
-     * @return callable
-     *
      * @throws UndefinedDependencyException when requested key is not set
+     *
+     * @return callable
      */
     private function getDefinition($key)
     {
