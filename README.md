@@ -9,6 +9,7 @@ Code information:
 [![Code Coverage Scrutinizer](https://scrutinizer-ci.com/g/mjacobus/nurse/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/nurse/?branch=master)
 [![Code Climate](https://codeclimate.com/github/mjacobus/nurse.png)](https://codeclimate.com/github/mjacobus/nurse)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/nurse/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/nurse/?branch=master)
+[![StyleCI](https://styleci.io/repos/21125805/shield)](https://styleci.io/repos/21125805)
 
 Package information:
 
