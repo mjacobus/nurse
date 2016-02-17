@@ -80,7 +80,7 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Get the definition funciton
+     * Get the definition function
      *
      * @param string $key the definition key
      *
