@@ -4,21 +4,23 @@ namespace Nurse;
 
 use Closure;
 use Interop\Container\ContainerInterface;
+use Interop\Container\Exception\ContainerException as InteropContainerException;
 use Nurse\Container\Exception\ContainerException;
 use Nurse\Container\Exception\DependencyAlreadyDefinedException;
 use Nurse\Container\Exception\UndefinedDependencyException;
+use Nurse\Factory\FactoryInterface;
 
 class Container implements ContainerInterface
 {
     /**
      * @var array
      */
-    private $definitions = array();
+    private $definitions = [];
 
     /**
      * @var array
      */
-    private $data = array();
+    private $data = [];
 
     /**
      * Defines the factory for the single instance objects that it should
@@ -45,6 +47,24 @@ class Container implements ContainerInterface
     }
 
     /**
+     * @param FactoryInterface $factory
+     *
+     * @return self
+     */
+    public function addFactory(FactoryInterface $factory)
+    {
+        $container = $this;
+
+        $callback = function () use ($factory, $container) {
+            return $factory->createService($container);
+        };
+
+        $this->set($factory->getKey(), $callback);
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      *
      * @param string $key the key for the
@@ -59,9 +79,11 @@ class Container implements ContainerInterface
             $definition = $this->getDefinition($key);
             try {
                 $this->data[$key] = $definition($this);
+            } catch (InteropContainerException $e) {
+                throw $e;
             } catch (\Exception $e) {
                 throw new ContainerException(
-                    "Error creating object with key 'foo'",
+                    "Error creating object with key '$key'",
                     0,
                     $e
                 );
