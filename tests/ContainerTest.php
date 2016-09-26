@@ -4,6 +4,7 @@ namespace NurseTest;
 
 use Dummy\Connection;
 use Nurse\Container;
+use Nurse\Container\Exception\UndefinedDependencyException;
 use PHPUnit_Framework_TestCase;
 
 class ContainerTest extends PHPUnit_Framework_TestCase
@@ -122,7 +123,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
      * @expectedExceptionMessage Error creating object with key 'foo'
      * @test
      */
-    public function throwsContainerExeptionWhenTheFactoryFails()
+    public function throwsContainerExceptionWhenTheFactoryFails()
     {
         try {
             $original = new \Exception('foo');
@@ -134,6 +135,23 @@ class ContainerTest extends PHPUnit_Framework_TestCase
             $this->assertSame($original, $e->getPrevious());
             throw $e;
         }
+    }
+
+    /**
+     * @expectedException \Nurse\Container\Exception\UndefinedDependencyException
+     * @expectedExceptionMessage Undefined bro
+     * @test
+     */
+    public function throwsOriginalContainerExceptionWhenExceptionIsAContainerException()
+    {
+        $original = new UndefinedDependencyException('Undefined bro');
+
+        $callback = function () use ($original) {
+            throw $original;
+        };
+
+        $this->object->set('foo', $callback);
+        $this->object->get('foo');
     }
 
     /**
@@ -159,5 +177,25 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
         $this->object->set('connection', $definition);
         $this->assertTrue($this->object->has('connection'));
+    }
+
+    /**
+     * @test
+     */
+    public function canAddFactories()
+    {
+        $factory = new \Dummy\MyDummyFactory();
+
+        $config = ['some' => 'config'];
+
+        $this->object->set('someConfig', function () use ($config) {
+            return $config;
+        });
+
+        $expected = new \Dummy\Connection($config);
+
+        $actual = $this->object->addFactory($factory)->get('theKey');
+
+        $this->assertEquals($expected, $actual);
     }
 }

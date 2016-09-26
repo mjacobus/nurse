@@ -35,7 +35,7 @@ Append the lib to your requirements key in your composer.json.
 }
 ```
 
-For PHP 5.3 support use version 0.9.2.
+For PHP 5.3 and 5.4 support use version 0.9.2.
 
 ### Alternative install
 - Learn [composer](https://getcomposer.org). You should not be looking for an alternative install. It is worth the time. Trust me ;-)
@@ -84,6 +84,39 @@ Nurse\Di::set('connection', function ($container) {
 });
 
 $connection = Nurse\Di::get('connection');
+```
+
+You can also create factories:
+
+```php
+<?php
+
+namespace App;
+
+use Nurse\Factory\FactoryInterface;
+use Nurse\Container;
+
+class ConnectionFactory implements FactoryInterface
+{
+    public function createService(Container $container)
+    {
+        $params = $container->get('connection_params');
+        return new Connection($params);
+    }
+
+    public function getKey()
+    {
+        return 'connection';
+    }
+}
+```
+
+And then:
+
+
+```php
+$factory = new \Dummy\MyDummyFactory();
+$actual = $container->addFactory($factory);
 ```
 
 ## Contributing
