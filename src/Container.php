@@ -13,12 +13,12 @@ class Container implements ContainerInterface
     /**
      * @var array
      */
-    private $definitions = array();
+    private $definitions = [];
 
     /**
      * @var array
      */
-    private $data = array();
+    private $data = [];
 
     /**
      * Defines the factory for the single instance objects that it should

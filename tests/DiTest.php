@@ -1,6 +1,6 @@
 <?php
 
-namespace NurseTests;
+namespace NurseTest;
 
 use Dummy\Connection;
 use Nurse\Di;

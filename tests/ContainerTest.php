@@ -1,6 +1,6 @@
 <?php
 
-namespace NurseTests;
+namespace NurseTest;
 
 use Dummy\Connection;
 use Nurse\Container;
@@ -81,16 +81,16 @@ class ContainerTest extends PHPUnit_Framework_TestCase
             return 'Doe';
         })
         ->set('config', function ($container) {
-            return array(
+            return [
                 'name'     => $container->get('name'),
                 'lastName' => $container->get('lastName'),
-            );
+            ];
         });
 
-        $expactation = array(
+        $expactation = [
             'name'     => 'Jon',
             'lastName' => 'Doe',
-        );
+        ];
 
         $this->assertEquals($expactation, $this->object->get('config'));
     }

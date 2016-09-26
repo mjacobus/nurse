@@ -16,6 +16,7 @@
         "phpunit/phpunit": "~4.8.21"
     },
     "require-dev": {
+        "bro/code": "^v0.1.5"
     },
     "autoload": {
         "psr-4": {
