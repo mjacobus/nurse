@@ -124,7 +124,7 @@ $actual = $container->addFactory($factory);
 Please refer to the [contribuiting guide](https://github.com/mjacobus/nurse/blob/master/CONTRIBUTING.md).
 
 
-## Lincense
+## License
 [MIT](MIT-LICENSE)
 
 ## Authors
