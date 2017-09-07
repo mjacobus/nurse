@@ -12,7 +12,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     /**
      * @var Container
      */
-    public $container;
+    public $object;
 
     public function setUp()
     {
