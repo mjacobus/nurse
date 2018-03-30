@@ -112,7 +112,7 @@ class ContainerTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Interop\Container\Exception\NotFoundException
+     * @expectedException \Psr\Container\NotFoundExceptionInterface
      * @expectedExceptionMessage 'invalid_key' was not defined
      */
     public function getWithUndefinedKeyThrowsException()
@@ -121,7 +121,7 @@ class ContainerTest extends TestCase
     }
 
     /**
-     * @expectedException \Interop\Container\Exception\ContainerException
+     * @expectedException \Psr\Container\ContainerExceptionInterface
      * @expectedExceptionMessage Error creating object with key 'foo'
      * @test
      */
@@ -162,7 +162,7 @@ class ContainerTest extends TestCase
     public function implementsInteropContainerInterface()
     {
         $this->assertInstanceOf(
-            'Interop\Container\ContainerInterface',
+            'Psr\Container\ContainerInterface',
             $this->object
         );
     }
