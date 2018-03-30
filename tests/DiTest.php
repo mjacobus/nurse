@@ -4,9 +4,9 @@ namespace NurseTest;
 
 use Dummy\Connection;
 use Nurse\Di;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class DiTest extends PHPUnit_Framework_TestCase
+class DiTest extends TestCase
 {
     /**
      * @test

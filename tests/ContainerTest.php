@@ -5,9 +5,9 @@ namespace NurseTest;
 use Dummy\Connection;
 use Nurse\Container;
 use Nurse\Container\Exception\UndefinedDependencyException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ContainerTest extends PHPUnit_Framework_TestCase
+class ContainerTest extends TestCase
 {
     /**
      * @var Container
@@ -68,6 +68,8 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->object->set('connection', function () {
             throw new \Exception();
         });
+
+        $this->assertTrue(true);
     }
 
     /**
