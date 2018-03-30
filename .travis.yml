@@ -11,7 +11,6 @@ matrix:
     - php: 7.1
     - php: 7.2
     - php: nightly
-    - php: hhvm
 
 before_install:
   - mkdir -p build/logs
