@@ -2,8 +2,8 @@
 
 namespace Nurse\Container\Exception;
 
-use Interop\Container\Exception\ContainerException;
+use Psr\Container\ContainerExceptionInterface;
 
-class DependencyAlreadyDefinedException extends \InvalidArgumentException implements ContainerException
+class DependencyAlreadyDefinedException extends \InvalidArgumentException implements ContainerExceptionInterface
 {
 }

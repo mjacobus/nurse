@@ -94,11 +94,11 @@ You can also create factories:
 namespace App;
 
 use Nurse\Factory\FactoryInterface;
-use Nurse\Container;
+use Psr\Container\ContainerInterface;
 
 class ConnectionFactory implements FactoryInterface
 {
-    public function createService(Container $container)
+    public function createService(ContainerInterface $container)
     {
         $params = $container->get('connection_params');
         return new Connection($params);

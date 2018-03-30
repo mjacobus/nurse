@@ -2,8 +2,8 @@
 
 namespace Nurse\Container\Exception;
 
-use Interop\Container\Exception\NotFoundException;
+use Psr\Container\NotFoundExceptionInterface;
 
-class UndefinedDependencyException extends \InvalidArgumentException implements NotFoundException
+class UndefinedDependencyException extends \InvalidArgumentException implements NotFoundExceptionInterface
 {
 }

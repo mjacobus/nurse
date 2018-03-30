@@ -5,9 +5,9 @@ namespace NurseTest;
 use Dummy\Connection;
 use Nurse\Container;
 use Nurse\Container\Exception\UndefinedDependencyException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ContainerTest extends PHPUnit_Framework_TestCase
+class ContainerTest extends TestCase
 {
     /**
      * @var Container
@@ -68,6 +68,8 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->object->set('connection', function () {
             throw new \Exception();
         });
+
+        $this->assertTrue(true);
     }
 
     /**
@@ -110,7 +112,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException \Interop\Container\Exception\NotFoundException
+     * @expectedException \Psr\Container\NotFoundExceptionInterface
      * @expectedExceptionMessage 'invalid_key' was not defined
      */
     public function getWithUndefinedKeyThrowsException()
@@ -119,7 +121,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Interop\Container\Exception\ContainerException
+     * @expectedException \Psr\Container\ContainerExceptionInterface
      * @expectedExceptionMessage Error creating object with key 'foo'
      * @test
      */
@@ -160,7 +162,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     public function implementsInteropContainerInterface()
     {
         $this->assertInstanceOf(
-            'Interop\Container\ContainerInterface',
+            'Psr\Container\ContainerInterface',
             $this->object
         );
     }

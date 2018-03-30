@@ -3,12 +3,12 @@
 namespace Nurse;
 
 use Closure;
-use Interop\Container\ContainerInterface;
-use Interop\Container\Exception\ContainerException as InteropContainerException;
 use Nurse\Container\Exception\ContainerException;
 use Nurse\Container\Exception\DependencyAlreadyDefinedException;
 use Nurse\Container\Exception\UndefinedDependencyException;
 use Nurse\Factory\FactoryInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
 
 class Container implements ContainerInterface
 {
@@ -79,7 +79,7 @@ class Container implements ContainerInterface
             $definition = $this->getDefinition($key);
             try {
                 $this->data[$key] = $definition($this);
-            } catch (InteropContainerException $e) {
+            } catch (ContainerExceptionInterface $e) {
                 throw $e;
             } catch (\Exception $e) {
                 throw new ContainerException(

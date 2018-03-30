@@ -2,19 +2,14 @@
 
 namespace Nurse\Factory;
 
-use Nurse\Container;
+use Psr\Container\ContainerInterface;
 
 interface FactoryInterface
 {
     /**
-     * @param Container $container
-     *
      * @return mixed
      */
-    public function createService(Container $container);
+    public function createService(ContainerInterface $container);
 
-    /**
-     * @return string
-     */
-    public function getKey();
+    public function getKey(): string;
 }
