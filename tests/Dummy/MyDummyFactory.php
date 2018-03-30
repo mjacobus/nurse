@@ -2,19 +2,19 @@
 
 namespace Dummy;
 
-use Nurse\Container;
 use Nurse\Factory\FactoryInterface;
+use Psr\Container\ContainerInterface;
 
 class MyDummyFactory implements FactoryInterface
 {
-    public function createService(Container $container)
+    public function createService(ContainerInterface $container)
     {
         $config = $container->get('someConfig');
 
         return new Connection($config);
     }
 
-    public function getKey()
+    public function getKey(): string
     {
         return 'theKey';
     }
